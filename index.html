@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata - Nashoikhul_ibad</title>
+    <title>Nashoikhul_ibad - Kartu Nama Digital</title>
     
-    <!-- Google Fonts: Poppins -->
+    <!-- Meta Tags untuk Preview WhatsApp/Medsos -->
+    <meta property="og:title" content="Nashoikhul_ibad - Kartu Nama Digital">
+    <meta property="og:description" content="Pemrograman & Pembelajar Aktif">
+    <meta property="og:image" content="https://i.ibb.co.com/cXFBDZzb/1770460693816.png">
+    <meta property="og:url" content="https://an4km4ma.github.io/Kartu_nama/">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts Poppins & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * { box-sizing: border-box; }
-        
+
         :root {
             --bg-body: #f0f2f5;
             --bg-card: #ffffff;
@@ -31,7 +36,6 @@
         }
 
         body {
-            /* Font Poppins diterapkan di sini */
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-body);
             display: flex;
@@ -93,7 +97,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px; /* Jarak antara ikon dan teks */
+            gap: 10px;
             padding: 12px;
             color: #ffffff;
             text-decoration: none;
@@ -102,6 +106,10 @@
             font-size: 14px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.15s ease, box-shadow 0.15s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-family: inherit;
         }
 
         .btn:active {
@@ -112,6 +120,8 @@
         .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .btn-tt { background-color: #000000; }
         .btn-wa { background-color: #25d366; }
+        .btn-vcard { background-color: #007bff; }
+        .btn-share { background-color: #6c757d; }
     </style>
 </head>
 <body>
@@ -119,7 +129,6 @@
     <div class="card" id="card">
         <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
 
-        <!-- Link Gambar yang Benar -->
         <img src="https://i.ibb.co.com/cXFBDZzb/1770460693816.png" alt="Foto Profil" class="profile-img">
         
         <h1>Nashoikhul_ibad</h1>
@@ -137,6 +146,12 @@
             <a href="https://wa.me/6285156834970" target="_blank" class="btn btn-wa">
                 <i class="fab fa-whatsapp"></i> WhatsApp Saya
             </a>
+            <a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AIbad%3BNashoikhul%0AFN%3ANashoikhul_ibad%0ATEL%3BTYPE%3DCELL%3A%2B6285156834970%0AEND%3AVCARD" download="Nashoikhul_Ibad.vcf" class="btn btn-vcard">
+                <i class="fas fa-address-card"></i> Simpan Kontak
+            </a>
+            <button onclick="salinLink()" class="btn btn-share">
+                <i class="fas fa-share-alt"></i> Bagikan Kartu
+            </button>
         </div>
     </div>
 
@@ -145,6 +160,11 @@
             document.body.classList.toggle('dark-mode');
             const btn = document.getElementById('themeBtn');
             btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        }
+
+        function salinLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link kartu nama berhasil disalin!");
         }
 
         const card = document.getElementById('card');
@@ -161,3 +181,4 @@
     </script>
 </body>
 </html>
+
